@@ -1,4 +1,36 @@
+tool to implement file edit instructions on computer from LLM 
+
 # quickstart 
+
+1. clone this repo or add this postinstall step to `packagejson` and run `npm install` again
+
+`package.json`
+```json
+
+  ...  
+  "scripts": {
+    ...
+    "postinstall": "npx degit stuartcrobinson/replacer/replacer replacer",
+    ...
+  }
+  ...
+```
+
+2. run the startup demo
+
+```
+python3 replacer/demo_replacer.py
+```
+
+3.  run replacer 
+
+```
+python3 replacer/replacer.py
+```
+
+4.  copy/paste the demo `replacer` commands from `demo_replacer_input.md` into `replacer_input.md` and hopefully your files get updated and some results get added the the top of your `replacer_input.md` like:
+
+
 
 
 
@@ -76,3 +108,7 @@ need to clean up `replacer/replacer_llm_instructions.md`
 this is all kinda janky.  i've been using a lot but no promises.  sometimes it leaves `replacer` syntax in important files.  dumb name.  hobby use only. 
 
 i just made this repo to formalize stuff for myself instead of lugging conflicting files & scripts back and forth
+
+🚨 NO SECURITY
+🚨 NO SANDBOXING
+🚨 NO SAFEGUARDS
