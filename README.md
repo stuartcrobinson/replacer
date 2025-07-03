@@ -18,13 +18,13 @@ tool to implement file edit instructions on computer from LLM
 
 2. run the startup demo
 
-```
+```bash
 python3 replacer/demo_replacer.py
 ```
 
 3.  run replacer 
 
-```
+```bash
 python3 replacer/replacer.py
 ```
 
@@ -70,7 +70,7 @@ in a node project i'm working on, i add this to my project to download the entir
 
 and then run, from your repo dir
 
-```
+```bash
 python3 replacer/replacer.py
 ```
 
