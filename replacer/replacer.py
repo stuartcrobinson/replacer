@@ -210,12 +210,12 @@ class FileReplacer:
             else:
                 # Search for partial path anywhere in tree
                 for path in self.repo_root.rglob('*/' + filename):
-                    if path.is_file() and 'replacer/replacer_input.txt' not in str(path) and not self._is_ignored(path):
+                    if path.is_file() and 'replacer/replacer_input.md' not in str(path) and not self._is_ignored(path):
                         matches.append(path)
         else:
             # Just filename - search recursively
             for path in self.repo_root.rglob(filename):
-                if path.is_file() and 'replacer/replacer_input.txt' not in str(path) and not self._is_ignored(path):
+                if path.is_file() and 'replacer/replacer_input.md' not in str(path) and not self._is_ignored(path):
                     matches.append(path)
         
         return matches
@@ -391,5 +391,5 @@ class FileReplacer:
                 time.sleep(1)
 
 if __name__ == "__main__":
-    replacer = FileReplacer("replacer/replacer_input.txt")
+    replacer = FileReplacer("replacer/replacer_input.md")
     replacer.watch()

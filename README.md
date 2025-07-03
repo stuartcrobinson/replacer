@@ -1,10 +1,10 @@
 # replacer
-script and workflow and instructions for LLM to be able to generate multi-line WRITE and search/replace edits for files on file system.  janky temp solution
+script and workflow and instructions for LLM to be able to generate multi-line OVERWRITE and SEARCH/REPLACE edits for files on file system. 
 
 
 # how it works 
 
-your project needs a `replacer/replacer_input.txt` file. this is where you'll dump responses from the LLM.  `replacer` will parse out and implement the embedded edit instructions.
+your project needs a `replacer/replacer_input.md` file. this is where you'll dump responses from the LLM.  `replacer` will parse out and implement the embedded edit instructions.
 
 it also generates `replacer/replacer_history.log` that you'll prob want to add to `.gitignore`
 
@@ -16,7 +16,7 @@ in a node project i'm working on, i add this to my project to download the entir
 <repo> $ python replacer/replacer.py
 ```
 
-and this will watch `replacer/replacer_input.txt` for `replacer` commands.
+and this will watch `replacer/replacer_input.md` for `replacer` commands.
 
 # example 
 
@@ -48,5 +48,5 @@ const timeout = 3000;
 const { timeout } = require('../config.json');
 <<<END>>>
 
-That's it! Paste into `scripts/replacer_input.txt` and run `python replacer/replacer.py`.
+That's it! Paste into `scripts/replacer_input.md` and run `python replacer/replacer.py`.
 ```
