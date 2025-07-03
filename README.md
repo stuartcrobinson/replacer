@@ -65,7 +65,7 @@ in a node project i'm working on, i add this to my project to download the entir
     "download-folder": "npx degit stuartcrobinson/replacer/replacer replacer",
   }
 }
-```json
+```
 
 
 and then run 
