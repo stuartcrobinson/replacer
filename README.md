@@ -70,7 +70,7 @@ in a node project i'm working on, i add this to my project to download the entir
 
 and then run, from your repo dir
 
-```bash
+```sh
 python3 replacer/replacer.py
 ```
 
