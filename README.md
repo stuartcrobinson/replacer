@@ -1,3 +1,7 @@
+# quickstart 
+
+
+
 # replacer
 script and workflow and instructions for LLM to be able to generate multi-line OVERWRITE and SEARCH/REPLACE edits for files on file system. 
 
@@ -10,7 +14,19 @@ it also generates `replacer/replacer_history.log` that you'll prob want to add t
 
 # how i use it
 
-in a node project i'm working on, i add this to my project to download the entire `replacer/` dir into my project when i `npm install`, and then run 
+in a node project i'm working on, i add this to my project to download the entire `replacer/` dir into my project when i `npm install`:
+
+{
+  "name": "your-project",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm run download-replacer-folder",
+    "download-folder": "npx degit stuartcrobinson/replacer/replacer replacer",
+  }
+}
+
+
+and then run 
 
 ```
 <repo> $ python replacer/replacer.py
@@ -28,7 +44,7 @@ I'll add a config file and update your route to use it. This will make your sett
 <<<EXPLANATION>>>
 Creating a centralized config file for API settings
 <<<FILE>>>
-src/config.json
+replacer_demo_src/config.json
 <<<OVERWRITE>>>
 {
   "apiVersion": "v1",
@@ -41,7 +57,7 @@ Now let's update the hardcoded value to pull from config instead:
 <<<EXPLANATION>>>
 Using config file instead of hardcoded timeout value
 <<<FILE>>>
-src/routes/api.js
+replacer_demo_src/routes/api.js
 <<<SEARCH>>>
 const timeout = 3000;
 <<<REPLACE>>>
@@ -50,3 +66,13 @@ const { timeout } = require('../config.json');
 
 That's it! Paste into `scripts/replacer_input.md` and run `python replacer/replacer.py`.
 ```
+
+# todo
+
+need to clean up `replacer/replacer_llm_instructions.md`
+
+# ⚠️ warning ⚠️ NOT FOR PRODUCTION
+
+this is all kinda janky.  i've been using a lot but no promises.  sometimes it leaves `replacer` syntax in important files.  dumb name.  hobby use only. 
+
+i just made this repo to formalize stuff for myself instead of lugging conflicting files & scripts back and forth

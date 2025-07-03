@@ -17,7 +17,7 @@ I'll add a config file and update your route to use it. This will make your sett
 <<<EXPLANATION>>>
 Creating a centralized config file for API settings
 <<<FILE>>>
-src/config.json
+replacer_demo_src/config.json
 <<<OVERWRITE>>>
 {
  "apiVersion": "v1",
@@ -30,7 +30,7 @@ Now let's update the hardcoded value to pull from config instead:
 <<<EXPLANATION>>>
 Using config file instead of hardcoded timeout value
 <<<FILE>>>
-src/routes/api.js
+replacer_demo_src/routes/api.js
 <<<SEARCH>>>
 const timeout = 3000;
 <<<REPLACE>>>

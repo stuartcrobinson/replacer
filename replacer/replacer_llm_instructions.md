@@ -28,7 +28,7 @@ this is why the change should happen
 
 <<<FILE>>>
 
-package/src/main.py
+package/replacer_demo_src/main.py
 
 <<<SEARCH>>>
 def old_function():

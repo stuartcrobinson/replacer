@@ -25,7 +25,7 @@ https://claude.ai/chat/79d661f3-b022-4315-bf71-7febab78f593
 from now on when you make editing suggestions, please use the following format.  and for each item, give a brief explanation of why the given change should be made:
 
 <<FILE>>
-src/main.py
+replacer_demo_src/main.py
 <<<SEARCH>>>
 def old_function():
    x = 1
@@ -59,7 +59,7 @@ this is why the change should happen
 
 <<<FILE>>>
 
-src/main.py
+replacer_demo_src/main.py
 
 <<<SEARCH>>>
 def old_function():
