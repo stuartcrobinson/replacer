@@ -119,6 +119,6 @@ this is all kinda janky.  i've been using a lot but no promises.  sometimes it l
 
 i just made this repo to formalize stuff for myself instead of lugging conflicting files & scripts back and forth
 
-🚨 NO SECURITY
-🚨 NO SANDBOXING
-🚨 NO SAFEGUARDS
+- 🚨 NO SECURITY
+- 🚨 NO SANDBOXING
+- 🚨 NO SAFEGUARDS
