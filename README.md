@@ -30,8 +30,15 @@ python3 replacer/replacer.py
 
 4.  copy/paste the demo `replacer` commands from `demo_replacer_input.md` into `replacer_input.md` and hopefully your files get updated and some results get added the the top of your `replacer_input.md` like:
 
+```
+=== PROCESSED: 2025-07-03 13:46:47 ===
+SUCCESS Block 1: Created /Users/stuart/repos/replacer/replacer_demo_src/config.json
+SUCCESS Block 2: Updated /Users/stuart/repos/replacer/replacer_demo_src/routes/api.js
+===
 
-
+... 
+<original pasted file contents here>
+```
 
 
 # replacer
