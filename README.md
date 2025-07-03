@@ -55,6 +55,8 @@ it also generates `replacer/replacer_history.log` that you'll prob want to add t
 
 in a node project i'm working on, i add this to my project to download the entire `replacer/` dir into my project when i `npm install`:
 
+`package.json`
+```json
 {
   "name": "your-project",
   "version": "1.0.0",
@@ -63,6 +65,7 @@ in a node project i'm working on, i add this to my project to download the entir
     "download-folder": "npx degit stuartcrobinson/replacer/replacer replacer",
   }
 }
+```json
 
 
 and then run 
