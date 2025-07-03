@@ -68,10 +68,10 @@ in a node project i'm working on, i add this to my project to download the entir
 ```
 
 
-and then run 
+and then run, from your repo dir
 
 ```
-<repo> $ python replacer/replacer.py
+python3 replacer/replacer.py
 ```
 
 and this will watch `replacer/replacer_input.md` for `replacer` commands.
