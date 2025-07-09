@@ -148,6 +148,36 @@ class FileReplacer:
         
         # Create the input file if it doesn't exist
         self._ensure_input_file_exists()
+        
+        # Fetch the LLM instructions file if it doesn't exist
+        self._ensure_llm_instructions_exists()
+
+    def _ensure_llm_instructions_exists(self):
+        """Fetch the LLM instructions from GitHub if it doesn't exist locally"""
+        llm_instructions_path = Path("replacer/replacer_llm_instructions.md")
+        
+        if not llm_instructions_path.exists():
+            import urllib.request
+            import urllib.error
+            
+            # Create the directory if it doesn't exist
+            llm_instructions_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            url = "https://raw.githubusercontent.com/stuartcrobinson/replacer/main/replacer/replacer_llm_instructions.md"
+            
+            try:
+                print(f"Fetching LLM instructions from GitHub...")
+                with urllib.request.urlopen(url) as response:
+                    content = response.read().decode('utf-8')
+                    
+                llm_instructions_path.write_text(content)
+                print(f"Created {llm_instructions_path} from GitHub")
+                
+            except urllib.error.URLError as e:
+                print(f"Warning: Could not fetch LLM instructions from GitHub: {e}")
+                print("You may want to manually create replacer/replacer_llm_instructions.md")
+            except Exception as e:
+                print(f"Warning: Error creating LLM instructions file: {e}")
 
     def _ensure_input_file_exists(self):
         """Create the input file with initial contents if it doesn't exist"""
