@@ -7,6 +7,7 @@ from pathlib import Path
 import hashlib
 import json
 import pathspec
+import argparse
 
 """
 usage:
@@ -89,19 +90,78 @@ config/settings.json
 
 """
 
+replacer_input_file_init_contents = """
+*** paste content here containing any `replacer` command blocks ***
+
+
+assuming replacer is running:
+
+```
+python replacer/replacer.py
+```
+
+# example input text containing some `replacer` command blocks:
+
+```
+I'll add a config file and update your route to use it. This will make your settings easier to manage.
+
+<<<EXPLANATION>>>
+Creating a centralized config file for API settings
+<<<FILE>>>
+replacer_demo_src/irrelevant/default/example/config.json
+<<<OVERWRITE>>>
+{
+ "apiVersion": "v1",
+ "timeout": 5000
+}
+<<<END>>>
+
+Now let's update the hardcoded value to pull from config instead:
+
+<<<EXPLANATION>>>
+Using config file instead of hardcoded timeout value
+<<<FILE>>>
+invalid/demo/path/to/file/routes/api.js
+<<<SEARCH>>>
+const timeout = 3000;
+<<<REPLACE>>>
+const { timeout } = require('../config.json');
+<<<END>>>
+```
+"""
+
 
 class FileReplacer:
-    def __init__(self, input_file, max_logs=10):
+    def __init__(self, input_file, max_logs=10, respect_gitignore=False):
         self.input_file = Path(input_file)
         self.repo_root = Path.cwd()
         self.last_hash = None
         self.processing = False
         self.max_logs = max_logs
         self.log_file = Path("replacer/replacer_history.log")
-        self.gitignore_spec = self._load_gitignore()
+        self.respect_gitignore = respect_gitignore
+        self.gitignore_spec = self._load_gitignore() if respect_gitignore else None
+        
+        # Create the input file if it doesn't exist
+        self._ensure_input_file_exists()
+
+    def _ensure_input_file_exists(self):
+        """Create the input file with initial contents if it doesn't exist"""
+        if not self.input_file.exists():
+            # Create the directory if it doesn't exist
+            self.input_file.parent.mkdir(parents=True, exist_ok=True)
+            
+            # Write the initial contents
+            self.input_file.write_text(replacer_input_file_init_contents)
+            
+            print(f"Created {self.input_file} with initial contents")
+            print(f"You can now add replacement blocks to this file.")
         
     def _load_gitignore(self):
         """Load .gitignore patterns from the repository root"""
+        if not self.respect_gitignore:
+            return None
+            
         gitignore_path = self.repo_root / '.gitignore'
         if gitignore_path.exists():
             with open(gitignore_path, 'r') as f:
@@ -110,7 +170,7 @@ class FileReplacer:
     
     def _is_ignored(self, path):
         """Check if a path should be ignored according to .gitignore"""
-        if not self.gitignore_spec:
+        if not self.respect_gitignore or not self.gitignore_spec:
             return False
         
         # Get relative path from repo root
@@ -391,5 +451,19 @@ class FileReplacer:
                 time.sleep(1)
 
 if __name__ == "__main__":
-    replacer = FileReplacer("replacer/replacer_input.md")
+    parser = argparse.ArgumentParser(description='Watch and process file replacements')
+    parser.add_argument('--respect-gitignore', action='store_true', 
+                        help='Respect .gitignore patterns when searching for files')
+    parser.add_argument('--input-file', default='replacer/replacer_input.md',
+                        help='Path to input file (default: replacer/replacer_input.md)')
+    
+    args = parser.parse_args()
+    
+    replacer = FileReplacer(args.input_file, respect_gitignore=args.respect_gitignore)
+    
+    if args.respect_gitignore:
+        print("Respecting .gitignore patterns")
+    else:
+        print("Ignoring .gitignore patterns (processing all files)")
+    
     replacer.watch()

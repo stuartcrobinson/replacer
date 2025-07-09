@@ -1,6 +1,7 @@
 .DS_Store
 replacer_history.log
 .vscode
+replacer_demo_src
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

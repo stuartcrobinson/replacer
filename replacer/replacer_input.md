@@ -1,3 +1,23 @@
+=== PROCESSED: 2025-07-09 11:08:51 ===
+ERROR Block 1: File is gitignored: /Users/stuart/repos/replacer/replacer_demo_src/irrelevant/default/example/config.json
+ERROR Block 2: File not found: invalid/demo/path/to/file/routes/api.js
+===
+
+=== PROCESSED: 2025-07-09 11:08:18 ===
+SUCCESS Block 1: Overwrote /Users/stuart/repos/replacer/replacer_demo_src/irrelevant/default/example/config.json
+ERROR Block 2: File not found: invalid/demo/path/to/file/routes/api.js
+===
+
+=== PROCESSED: 2025-07-09 11:08:11 ===
+SUCCESS Block 1: Overwrote /Users/stuart/repos/replacer/replacer_demo_src/irrelevant/default/example/config.json
+ERROR Block 2: File not found: invalid/demo/path/to/file/routes/api.js
+===
+
+=== PROCESSED: 2025-07-09 11:07:47 ===
+SUCCESS Block 1: Created /Users/stuart/repos/replacer/replacer_demo_src/irrelevant/default/example/config.json
+ERROR Block 2: File not found: invalid/demo/path/to/file/routes/api.js
+===
+
 *** paste content here containing any `replacer` command blocks ***
 
 
