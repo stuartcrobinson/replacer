@@ -1,6 +1,22 @@
 tool to implement file edit instructions on computer from LLM 
 
-# quickstart 
+# quickstart
+
+## run using pipx
+```
+pipx run https://raw.githubusercontent.com/stuartcrobinson/replacer/main/replacer/replacer.py
+```
+
+#### With arguments
+```
+pipx run https://raw.githubusercontent.com/stuartcrobinson/replacer/main/replacer/replacer.py --respect-gitignore
+```
+-----
+-----
+-----
+
+
+# old quickstart 
 
 1. clone this repo or add this postinstall step to `packagejson` and run `npm install` again
 

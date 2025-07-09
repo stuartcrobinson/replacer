@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# dependencies = ["pathspec"]
+# ///
+
 import os
 import re
 import time
@@ -6,8 +10,8 @@ from datetime import datetime
 from pathlib import Path
 import hashlib
 import json
-import pathspec
 import argparse
+import pathspec
 
 """
 usage:
