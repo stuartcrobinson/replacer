@@ -5,3 +5,8 @@ or do we.... no that's stupid cos it would lead to creating extra bad stuff....
 ignore this.  and maybe enshrine somewhere why its important to actually not allow this.
 
 and honestly why its important to make sure that the root of all file paths is precisely correct...  no smart looking around....
+
+
+UPDATE:
+
+this fails when replace block is empty.  i tried updating the code and it kept breaking.  real fix is probably a state machine.  or starting over from scratch.  and including tests along the way.  but for now we just need to tell the LLM that when it wants to have an empty replace block, to replace it with a blank line and a space.
