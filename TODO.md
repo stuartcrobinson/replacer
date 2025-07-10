@@ -13,3 +13,6 @@ this fails when replace block is empty.  i tried updating the code and it kept b
 
 https://claude.ai/chat/f107ee9a-ecbb-4338-811c-6ff07bace457
 examples of how fixing failed 
+
+state machine conversion chat:
+https://claude.ai/chat/e12f85b3-b42a-4b29-b183-fd2a0b77f965
