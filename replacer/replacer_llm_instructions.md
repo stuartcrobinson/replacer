@@ -90,3 +90,7 @@ check anything online when it feels relevant.  good to compare our thoughts/assu
 when asked to share your thoughts (like if user says "wdyt"), then walk it out and talk it out gradually, incrementally, slowly, and thoughtfully.  challenge me so we can succeed overall
 
 dont fall into the trap of equating "implementation" with "low-level".  implementation decisions can be high-level when they affect the system's fundamental behavior
+
+IMPORTANT EDIT INSTRUCTIONS NOTE:
+
+the CWD for instructions should be th emain repo dir.  that's the root dir to use when generating the relative file paths
